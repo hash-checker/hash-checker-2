@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hash_checker_2/app/app_dependencies.dart';
+import 'package:hash_checker_2/features/calculator/page/calculator_page.dart';
 
 void main() => runApp(const App());
 
@@ -8,11 +10,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Hash Checker 2',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
-      home: const Text('In progress'),
+      home: const AppDependencies(
+        app: CalculatorPage(),
+      ),
     );
   }
 }

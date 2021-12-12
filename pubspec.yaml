@@ -10,10 +10,21 @@ dependencies:
   flutter:
     sdk: flutter
 
+  mobx: ^2.0.5
+  flutter_mobx: ^2.0.2
+
+  provider: ^6.0.1
+
+  crypto: ^3.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^1.0.0
+
+  build_runner: ^2.1.5
+  mobx_codegen: ^2.0.4
+
 flutter:
   uses-material-design: true
