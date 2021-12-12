@@ -24,6 +24,37 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
     });
   }
 
+  final _$hashSourceAtom = Atom(name: '_CalculatorStore.hashSource');
+
+  @override
+  HashSource get hashSource {
+    _$hashSourceAtom.reportRead();
+    return super.hashSource;
+  }
+
+  @override
+  set hashSource(HashSource value) {
+    _$hashSourceAtom.reportWrite(value, super.hashSource, () {
+      super.hashSource = value;
+    });
+  }
+
+  final _$textValueToGenerateAtom =
+      Atom(name: '_CalculatorStore.textValueToGenerate');
+
+  @override
+  String get textValueToGenerate {
+    _$textValueToGenerateAtom.reportRead();
+    return super.textValueToGenerate;
+  }
+
+  @override
+  set textValueToGenerate(String value) {
+    _$textValueToGenerateAtom.reportWrite(value, super.textValueToGenerate, () {
+      super.textValueToGenerate = value;
+    });
+  }
+
   final _$generatedHashAtom = Atom(name: '_CalculatorStore.generatedHash');
 
   @override
@@ -54,6 +85,28 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
   }
 
   @override
+  void setHashSource(HashSource hashSource) {
+    final _$actionInfo = _$_CalculatorStoreActionController.startAction(
+        name: '_CalculatorStore.setHashSource');
+    try {
+      return super.setHashSource(hashSource);
+    } finally {
+      _$_CalculatorStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setTextValueToGenerate(String value) {
+    final _$actionInfo = _$_CalculatorStoreActionController.startAction(
+        name: '_CalculatorStore.setTextValueToGenerate');
+    try {
+      return super.setTextValueToGenerate(value);
+    } finally {
+      _$_CalculatorStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void generateHash() {
     final _$actionInfo = _$_CalculatorStoreActionController.startAction(
         name: '_CalculatorStore.generateHash');
@@ -68,6 +121,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
   String toString() {
     return '''
 hashType: ${hashType},
+hashSource: ${hashSource},
+textValueToGenerate: ${textValueToGenerate},
 generatedHash: ${generatedHash}
     ''';
   }
