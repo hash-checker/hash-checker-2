@@ -45,36 +45,13 @@ abstract class _CalculatorStore with Store {
 
   @action
   void generateHash() {
+    List<int>? bytes;
     if (hashSource == HashSource.text) {
-      final bytes = utf8.encode(textValueToGenerate);
-      switch (hashType) {
-        case HashType.md5:
-          generatedHash = md5.convert(bytes).toString();
-          break;
-        case HashType.sha1:
-          generatedHash = sha1.convert(bytes).toString();
-          break;
-        case HashType.sha224:
-          generatedHash = sha224.convert(bytes).toString();
-          break;
-        case HashType.sha256:
-          generatedHash = sha256.convert(bytes).toString();
-          break;
-        case HashType.sha384:
-          generatedHash = sha384.convert(bytes).toString();
-          break;
-        case HashType.sha512:
-          generatedHash = sha512.convert(bytes).toString();
-          break;
-        case HashType.sha512_224:
-          generatedHash = sha512224.convert(bytes).toString();
-          break;
-        case HashType.sha512_256:
-          generatedHash = sha512256.convert(bytes).toString();
-          break;
-      }
+      bytes = utf8.encode(textValueToGenerate);
     } else if (hashSource == HashSource.file) {
-      final bytes = File(fileToGenerate).readAsBytesSync();
+      bytes = File(fileToGenerate).readAsBytesSync();
+    }
+    if (bytes != null) {
       switch (hashType) {
         case HashType.md5:
           generatedHash = md5.convert(bytes).toString();
