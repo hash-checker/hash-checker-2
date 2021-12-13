@@ -39,6 +39,21 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
     });
   }
 
+  final _$fileToGenerateAtom = Atom(name: '_CalculatorStore.fileToGenerate');
+
+  @override
+  String get fileToGenerate {
+    _$fileToGenerateAtom.reportRead();
+    return super.fileToGenerate;
+  }
+
+  @override
+  set fileToGenerate(String value) {
+    _$fileToGenerateAtom.reportWrite(value, super.fileToGenerate, () {
+      super.fileToGenerate = value;
+    });
+  }
+
   final _$textValueToGenerateAtom =
       Atom(name: '_CalculatorStore.textValueToGenerate');
 
@@ -85,22 +100,22 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
   }
 
   @override
-  void setHashSource(HashSource hashSource) {
+  void setFileToGenerate(String fileToGenerate) {
     final _$actionInfo = _$_CalculatorStoreActionController.startAction(
-        name: '_CalculatorStore.setHashSource');
+        name: '_CalculatorStore.setFileToGenerate');
     try {
-      return super.setHashSource(hashSource);
+      return super.setFileToGenerate(fileToGenerate);
     } finally {
       _$_CalculatorStoreActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setTextValueToGenerate(String value) {
+  void setTextValueToGenerate(String textValueToGenerate) {
     final _$actionInfo = _$_CalculatorStoreActionController.startAction(
         name: '_CalculatorStore.setTextValueToGenerate');
     try {
-      return super.setTextValueToGenerate(value);
+      return super.setTextValueToGenerate(textValueToGenerate);
     } finally {
       _$_CalculatorStoreActionController.endAction(_$actionInfo);
     }
@@ -122,6 +137,7 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
     return '''
 hashType: ${hashType},
 hashSource: ${hashSource},
+fileToGenerate: ${fileToGenerate},
 textValueToGenerate: ${textValueToGenerate},
 generatedHash: ${generatedHash}
     ''';

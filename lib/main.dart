@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:hash_checker_2/app/app_dependencies.dart';
-import 'package:hash_checker_2/features/calculator/page/calculator_page.dart';
 
-void main() => runApp(const App());
+import 'components/router/app_router.gr.dart';
+
+void main() => runApp(App());
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  final _appRouter = AppRouter();
+
+  App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Hash Checker 2',
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: const AppDependencies(
-        app: CalculatorPage(),
-      ),
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

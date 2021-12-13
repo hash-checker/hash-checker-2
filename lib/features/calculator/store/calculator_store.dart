@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 import 'package:hash_checker_2/data/models/hash_source.dart';
@@ -17,6 +18,9 @@ abstract class _CalculatorStore with Store {
   HashSource hashSource = HashSource.none;
 
   @observable
+  String fileToGenerate = '';
+
+  @observable
   String textValueToGenerate = '';
 
   @observable
@@ -28,19 +32,49 @@ abstract class _CalculatorStore with Store {
   }
 
   @action
-  void setHashSource(HashSource hashSource) {
-    this.hashSource = hashSource;
+  void setFileToGenerate(String fileToGenerate) {
+    this.fileToGenerate = fileToGenerate;
+    hashSource = HashSource.file;
   }
 
   @action
-  void setTextValueToGenerate(String value) {
-    textValueToGenerate = value;
+  void setTextValueToGenerate(String textValueToGenerate) {
+    this.textValueToGenerate = textValueToGenerate;
+    hashSource = HashSource.text;
   }
 
   @action
   void generateHash() {
     if (hashSource == HashSource.text) {
       final bytes = utf8.encode(textValueToGenerate);
+      switch (hashType) {
+        case HashType.md5:
+          generatedHash = md5.convert(bytes).toString();
+          break;
+        case HashType.sha1:
+          generatedHash = sha1.convert(bytes).toString();
+          break;
+        case HashType.sha224:
+          generatedHash = sha224.convert(bytes).toString();
+          break;
+        case HashType.sha256:
+          generatedHash = sha256.convert(bytes).toString();
+          break;
+        case HashType.sha384:
+          generatedHash = sha384.convert(bytes).toString();
+          break;
+        case HashType.sha512:
+          generatedHash = sha512.convert(bytes).toString();
+          break;
+        case HashType.sha512_224:
+          generatedHash = sha512224.convert(bytes).toString();
+          break;
+        case HashType.sha512_256:
+          generatedHash = sha512256.convert(bytes).toString();
+          break;
+      }
+    } else if (hashSource == HashSource.file) {
+      final bytes = File(fileToGenerate).readAsBytesSync();
       switch (hashType) {
         case HashType.md5:
           generatedHash = md5.convert(bytes).toString();

@@ -1,5 +1,7 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:hash_checker_2/components/router/app_router.gr.dart';
 import 'package:hash_checker_2/data/extensions/hash_type_extensions.dart';
 import 'package:hash_checker_2/data/models/hash_action.dart';
 import 'package:hash_checker_2/data/models/hash_source.dart';
@@ -30,21 +32,36 @@ class _CalculatorPageState extends State<CalculatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Hash Checker'),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+            onPressed: () => const SettingsPageRoute().show(context),
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Observer(
-              builder: (_) => OutlinedButton(
-                child: Text(_store!.hashType.name()),
-                onPressed: () async {
-                  final hashType = await showSelectHashTypeDialog(
-                    context: context,
-                    current: _store!.hashType,
-                  );
-                  _store!.setHashType(hashType ?? _store!.hashType);
-                },
+              builder: (_) => SizedBox(
+                width: 144,
+                child: OutlinedButton(
+                  child: Text(_store!.hashType.name()),
+                  onPressed: () async {
+                    final hashType = await showSelectHashTypeDialog(
+                      context: context,
+                      current: _store!.hashType,
+                    );
+                    _store!.setHashType(hashType ?? _store!.hashType);
+                  },
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -94,9 +111,12 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       onPressed: () async {
                         final hashSource = await showSelectHashSourceDialog(context);
                         if (hashSource != null) {
-                          _store!.setHashSource(hashSource);
                           switch (hashSource) {
                             case HashSource.file:
+                              final result = await FilePicker.platform.pickFiles();
+                              if (result != null) {
+                                _store!.setFileToGenerate(result.paths.first!);
+                              }
                               break;
                             case HashSource.text:
                               final text = await showTextEnterDialog(
@@ -140,15 +160,19 @@ class _CalculatorPageState extends State<CalculatorPage> {
             Observer(
               builder: (context) {
                 final hashSource = _store!.hashSource;
-                return OutlinedButton(
-                  child: Text(
-                    hashSource == HashSource.none
-                        ? 'None'
-                        : hashSource == HashSource.file
-                            ? 'File'
-                            : _store!.textValueToGenerate,
+                return SizedBox(
+                  width: 172,
+                  height: 48,
+                  child: OutlinedButton(
+                    child: Text(
+                      hashSource == HashSource.none
+                          ? 'None'
+                          : hashSource == HashSource.file
+                              ? _store!.fileToGenerate
+                              : _store!.textValueToGenerate,
+                    ),
+                    onPressed: () {},
                   ),
-                  onPressed: () {},
                 );
               },
             ),
