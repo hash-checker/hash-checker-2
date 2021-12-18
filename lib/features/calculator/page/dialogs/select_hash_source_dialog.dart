@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hash_checker_2/components/widgets/app_rounded_bottom_sheet.dart';
+import 'package:hash_checker_2/data/extensions/hash_source_extensions.dart';
 import 'package:hash_checker_2/data/models/hash_source.dart';
 
 Future<HashSource?> showSelectHashSourceDialog(BuildContext context) {
@@ -6,31 +8,20 @@ Future<HashSource?> showSelectHashSourceDialog(BuildContext context) {
     context: context,
     backgroundColor: Colors.transparent,
     isScrollControlled: true,
-    builder: (_) => Wrap(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8),
-          child: Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(
-                Radius.circular(8),
+    builder: (_) => AppRoundedBottomSheet(
+      child: Column(
+        children: HashSource.values.map(
+          (hashSource) {
+            return ListTile(
+              title: Text(hashSource.name()),
+              onTap: () => Navigator.pop<HashSource>(
+                context,
+                hashSource,
               ),
-            ),
-            child: Column(
-                children: HashSource.values.map((hashSource) {
-                  return ListTile(
-                    title: Text(hashSource.toString()),
-                    onTap: () => Navigator.pop<HashSource>(
-                      context,
-                      hashSource,
-                    ),
-                  );
-                }).toList()),
-          ),
-        ),
-      ],
+            );
+          },
+        ).toList(),
+      ),
     ),
   );
 }
-

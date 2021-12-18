@@ -39,18 +39,18 @@ class _TextEnterDialogState extends State<_TextEnterDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Column(
-        children: [
-          TextField(controller: _textEditingController),
-          MaterialButton(
-            child: const Text('Apply'),
-            onPressed: () => Navigator.pop<String>(
-              context,
-              _textEditingController.text,
-            ),
-          ),
-        ],
+      content: TextField(
+        controller: _textEditingController,
       ),
+      actions: [
+        MaterialButton(
+          child: const Text('Apply'),
+          onPressed: () => Navigator.pop<String>(
+            context,
+            _textEditingController.text,
+          ),
+        ),
+      ],
     );
   }
 }

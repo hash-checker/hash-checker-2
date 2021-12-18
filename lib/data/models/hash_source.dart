@@ -1,5 +1,5 @@
 enum HashSource {
-  none,
   file,
   text,
+  none,
 }

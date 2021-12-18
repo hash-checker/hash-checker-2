@@ -2,6 +2,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:hash_checker_2/components/router/app_router.gr.dart';
+import 'package:hash_checker_2/components/widgets/app_calculator_action_button.dart';
 import 'package:hash_checker_2/data/extensions/hash_type_extensions.dart';
 import 'package:hash_checker_2/data/models/hash_action.dart';
 import 'package:hash_checker_2/data/models/hash_source.dart';
@@ -99,15 +100,12 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 Observer(
                   builder: (_) {
                     final hashSource = _store!.hashSource;
-                    return MaterialButton(
-                      color: Colors.teal,
-                      child: Text(
-                        hashSource == HashSource.none
-                            ? 'From'
-                            : hashSource == HashSource.file
-                                ? 'File'
-                                : 'Text',
-                      ),
+                    return AppCalculatorActionButton(
+                      text: hashSource == HashSource.none
+                          ? 'From'
+                          : hashSource == HashSource.file
+                              ? 'File'
+                              : 'Text',
                       onPressed: () async {
                         final hashSource = await showSelectHashSourceDialog(context);
                         if (hashSource != null) {
@@ -136,9 +134,8 @@ class _CalculatorPageState extends State<CalculatorPage> {
                   },
                 ),
                 const SizedBox(width: 8),
-                MaterialButton(
-                  color: Colors.teal,
-                  child: const Text('Action'),
+                AppCalculatorActionButton(
+                  text: 'Action',
                   onPressed: () async {
                     final hashAction = await showSelectHashActionDialog(context);
                     if (hashAction != null) {

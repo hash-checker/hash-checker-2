@@ -44,6 +44,13 @@ abstract class _CalculatorStore with Store {
   }
 
   @action
+  void clearSelections() {
+    hashSource = HashSource.none;
+    fileToGenerate = '';
+    textValueToGenerate = '';
+  }
+
+  @action
   void generateHash() {
     List<int>? bytes;
     if (hashSource == HashSource.text) {

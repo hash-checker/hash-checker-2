@@ -122,6 +122,17 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
   }
 
   @override
+  void clearSelections() {
+    final _$actionInfo = _$_CalculatorStoreActionController.startAction(
+        name: '_CalculatorStore.clearSelections');
+    try {
+      return super.clearSelections();
+    } finally {
+      _$_CalculatorStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void generateHash() {
     final _$actionInfo = _$_CalculatorStoreActionController.startAction(
         name: '_CalculatorStore.generateHash');
