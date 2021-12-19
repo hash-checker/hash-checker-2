@@ -13,7 +13,7 @@ Future<HashAction?> showSelectHashActionDialog(BuildContext context) {
         children: HashAction.values.map(
           (hashAction) {
             return ListTile(
-              title: Text(hashAction.name()),
+              title: Text(hashAction.name),
               onTap: () => Navigator.pop<HashAction>(
                 context,
                 hashAction,

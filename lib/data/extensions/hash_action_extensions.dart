@@ -1,7 +1,7 @@
 import 'package:hash_checker_2/data/models/hash_action.dart';
 
 extension HashActionToString on HashAction {
-  String name() {
+  String get name {
     switch (this) {
       case HashAction.compare:
         return 'Compare';

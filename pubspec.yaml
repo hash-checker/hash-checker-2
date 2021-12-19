@@ -33,6 +33,11 @@ dependencies:
   # See the following link for more information: https://pub.dev/packages/crypto
   crypto: ^3.0.1
 
+  # Flutter plugin for reading and writing simple key-value pairs.
+  # Wraps NSUserDefaults on iOS and SharedPreferences on Android.
+  # See the following link for more information: https://pub.dev/packages/shared_preferences
+  shared_preferences: ^2.0.11
+
   # A package that allows you to use a native file explorer to pick single
   # or multiple absolute file paths, with extension filtering support.
   # See the following link for more information: https://pub.dev/packages/file_picker

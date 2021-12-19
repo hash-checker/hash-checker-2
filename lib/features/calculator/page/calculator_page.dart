@@ -54,7 +54,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
               builder: (_) => SizedBox(
                 width: 144,
                 child: OutlinedButton(
-                  child: Text(_store!.hashType.name()),
+                  child: Text(_store!.hashType.name),
                   onPressed: () async {
                     final hashType = await showSelectHashTypeDialog(
                       context: context,
@@ -126,6 +126,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                               }
                               break;
                             case HashSource.none:
+                              _store!.clearSelections();
                               break;
                           }
                         }

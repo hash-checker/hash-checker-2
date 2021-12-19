@@ -1,7 +1,7 @@
 import 'package:hash_checker_2/data/models/hash_type.dart';
 
 extension HashTypeToString on HashType {
-  String name() {
+  String get name {
     switch (this) {
       case HashType.md5:
         return 'MD5';

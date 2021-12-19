@@ -1,7 +1,7 @@
 import 'package:hash_checker_2/data/models/hash_source.dart';
 
 extension HashSourceToString on HashSource {
-  String name() {
+  String get name {
     switch (this) {
       case HashSource.none:
         return 'Clear selection';

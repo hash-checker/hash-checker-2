@@ -17,7 +17,7 @@ Future<HashType?> showSelectHashTypeDialog({
         children: HashType.values.map(
           (hashType) {
             return ListTile(
-              title: Text(hashType.name()),
+              title: Text(hashType.name),
               trailing: hashType == current ? const Icon(Icons.done) : null,
               onTap: () => Navigator.pop<HashType>(
                 context,

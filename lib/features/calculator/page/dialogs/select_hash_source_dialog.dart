@@ -13,7 +13,7 @@ Future<HashSource?> showSelectHashSourceDialog(BuildContext context) {
         children: HashSource.values.map(
           (hashSource) {
             return ListTile(
-              title: Text(hashSource.name()),
+              title: Text(hashSource.name),
               onTap: () => Navigator.pop<HashSource>(
                 context,
                 hashSource,
