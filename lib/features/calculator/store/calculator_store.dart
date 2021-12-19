@@ -26,6 +26,12 @@ abstract class _CalculatorStore with Store {
   @observable
   String generatedHash = '';
 
+  String get source => hashSource == HashSource.none
+      ? 'None'
+      : hashSource == HashSource.file
+          ? fileToGenerate
+          : textValueToGenerate;
+
   @action
   void setHashType(HashType hashType) {
     this.hashType = hashType;

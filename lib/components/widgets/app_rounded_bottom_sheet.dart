@@ -16,9 +16,9 @@ class AppRoundedBottomSheet extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8),
           child: Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(
+            decoration: BoxDecoration(
+              color: Theme.of(context).backgroundColor,
+              borderRadius: const BorderRadius.all(
                 Radius.circular(8),
               ),
             ),

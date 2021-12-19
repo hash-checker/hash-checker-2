@@ -12,6 +12,8 @@ import 'package:hash_checker_2/features/calculator/page/dialogs/select_hash_type
 import 'package:hash_checker_2/features/calculator/page/dialogs/text_enter_dialog.dart';
 import 'package:hash_checker_2/features/calculator/store/calculator_store.dart';
 
+import 'dialogs/view_source_value_dialog.dart';
+
 class CalculatorPage extends StatefulWidget {
   const CalculatorPage({Key? key}) : super(key: key);
 
@@ -172,7 +174,10 @@ class _CalculatorPageState extends State<CalculatorPage> {
                               ? _store!.fileToGenerate
                               : _store!.textValueToGenerate,
                     ),
-                    onPressed: () {},
+                    onPressed: () => showViewSourceValueDialog(
+                      context: context,
+                      source: _store!.source,
+                    ),
                   ),
                 );
               },

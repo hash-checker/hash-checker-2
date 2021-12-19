@@ -16,13 +16,22 @@ class SettingsRepositoryImpl extends SettingsRepository {
   @override
   void changeTheme(AppTheme theme) => prefs.setString(
         _keyTheme,
-        theme == AppTheme.light ? 'light' : 'dark',
+        theme == AppTheme.system
+            ? 'system'
+            : theme == AppTheme.light
+                ? 'light'
+                : 'dark',
       );
 
   @override
   AppTheme currentTheme() {
     if (prefs.containsKey(_keyTheme)) {
-      return prefs.getString(_keyTheme) == 'light' ? AppTheme.light : AppTheme.dark;
+      final theme = prefs.getString(_keyTheme);
+      return theme == 'system'
+          ? AppTheme.system
+          : theme == 'light'
+              ? AppTheme.light
+              : AppTheme.dark;
     }
     return AppTheme.system;
   }
