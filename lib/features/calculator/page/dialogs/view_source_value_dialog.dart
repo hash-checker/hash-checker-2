@@ -10,7 +10,11 @@ Future<void> showViewSourceValueDialog({
     backgroundColor: Colors.transparent,
     isScrollControlled: true,
     builder: (_) => AppRoundedBottomSheet(
-      child: Text(source),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        width: MediaQuery.of(context).size.width,
+        child: Text(source),
+      ),
     ),
   );
 }

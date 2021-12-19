@@ -5,6 +5,7 @@ import 'package:hash_checker_2/components/router/app_router.gr.dart';
 import 'package:hash_checker_2/components/widgets/app_calculator_action_button.dart';
 import 'package:hash_checker_2/data/extensions/hash_type_extensions.dart';
 import 'package:hash_checker_2/data/models/hash_action.dart';
+import 'package:hash_checker_2/data/models/hash_compare_result.dart';
 import 'package:hash_checker_2/data/models/hash_source.dart';
 import 'package:hash_checker_2/features/calculator/page/dialogs/select_hash_aciton_dialog.dart';
 import 'package:hash_checker_2/features/calculator/page/dialogs/select_hash_source_dialog.dart';
@@ -150,6 +151,31 @@ class _CalculatorPageState extends State<CalculatorPage> {
                           _store!.generateHash();
                           break;
                         case HashAction.compare:
+                          final result = _store!.compare();
+                          switch (result) {
+                            case HashCompareResult.match:
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: const Text('Match'),
+                                  action: SnackBarAction(
+                                    label: 'OK',
+                                    onPressed: () => ScaffoldMessenger.of(context).clearSnackBars(),
+                                  ),
+                                ),
+                              );
+                              break;
+                            case HashCompareResult.doNotMatch:
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: const Text('Do not match'),
+                                  action: SnackBarAction(
+                                    label: 'OK',
+                                    onPressed: () => ScaffoldMessenger.of(context).clearSnackBars(),
+                                  ),
+                                ),
+                              );
+                              break;
+                          }
                           break;
                         case HashAction.export:
                           break;

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:crypto/crypto.dart';
+import 'package:hash_checker_2/data/models/hash_compare_result.dart';
 import 'package:hash_checker_2/data/models/hash_source.dart';
 import 'package:hash_checker_2/data/models/hash_type.dart';
 import 'package:mobx/mobx.dart';
@@ -24,6 +25,9 @@ abstract class _CalculatorStore with Store {
   String textValueToGenerate = '';
 
   @observable
+  String originalHash = '';
+
+  @observable
   String generatedHash = '';
 
   String get source => hashSource == HashSource.none
@@ -31,6 +35,8 @@ abstract class _CalculatorStore with Store {
       : hashSource == HashSource.file
           ? fileToGenerate
           : textValueToGenerate;
+
+  HashCompareResult compare() => originalHash == generatedHash ? HashCompareResult.match : HashCompareResult.doNotMatch;
 
   @action
   void setHashType(HashType hashType) {

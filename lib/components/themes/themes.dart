@@ -7,6 +7,9 @@ ThemeData get lightTheme {
     colorScheme: lightTheme.colorScheme.copyWith(
       primary: Colors.teal,
     ),
+    snackBarTheme: const SnackBarThemeData(
+      actionTextColor: Colors.teal,
+    ),
   );
 }
 
@@ -15,6 +18,13 @@ ThemeData get darkTheme {
   return darkTheme.copyWith(
     colorScheme: darkTheme.colorScheme.copyWith(
       primary: Colors.tealAccent,
+    ),
+    snackBarTheme: SnackBarThemeData(
+      backgroundColor: darkTheme.backgroundColor,
+      actionTextColor: Colors.tealAccent,
+      contentTextStyle: const TextStyle(
+        color: Colors.white,
+      ),
     ),
   );
 }
