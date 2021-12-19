@@ -107,7 +107,10 @@ class _CalculatorPageState extends State<CalculatorPage> {
                               ? 'File'
                               : 'Text',
                       onPressed: () async {
-                        final hashSource = await showSelectHashSourceDialog(context);
+                        final hashSource = await showSelectHashSourceDialog(
+                          context: context,
+                          showClearButton: _store!.hashSource != HashSource.none,
+                        );
                         if (hashSource != null) {
                           switch (hashSource) {
                             case HashSource.file:

@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:hash_checker_2/data/models/hash_source.dart';
 
 extension HashSourceToString on HashSource {
@@ -11,4 +13,7 @@ extension HashSourceToString on HashSource {
         return 'Text';
     }
   }
+}
+
+extension HashSourceLists on HashSource {
 }
