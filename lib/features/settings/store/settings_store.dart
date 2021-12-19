@@ -19,5 +19,6 @@ abstract class _SettingsStore with Store {
   @action
   void changeTheme(AppTheme theme) {
     currentTheme = theme;
+    settingsRepository.changeTheme(theme);
   }
 }
