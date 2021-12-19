@@ -27,6 +27,7 @@ class _TextEnterDialog extends StatefulWidget {
 
 class _TextEnterDialogState extends State<_TextEnterDialog> {
   late TextEditingController _textEditingController;
+  final _textEditingFocusNode = FocusNode();
 
   @override
   void initState() {
@@ -34,15 +35,34 @@ class _TextEnterDialogState extends State<_TextEnterDialog> {
     _textEditingController = TextEditingController(
       text: widget.current,
     );
+    WidgetsBinding.instance!.addPostFrameCallback((_) => _textEditingFocusNode.requestFocus());
   }
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: TextField(
-        controller: _textEditingController,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(10.0),
+        ),
+      ),
+      title: const Text('Text'),
+      insetPadding: const EdgeInsets.all(16),
+      content: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: TextField(
+          controller: _textEditingController,
+          focusNode: _textEditingFocusNode,
+          decoration: const InputDecoration(
+            hintText: 'Text',
+          ),
+        ),
       ),
       actions: [
+        MaterialButton(
+          child: const Text('Cancel'),
+          onPressed: () => Navigator.pop<String>(context),
+        ),
         MaterialButton(
           child: const Text('Apply'),
           onPressed: () => Navigator.pop<String>(
