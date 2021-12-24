@@ -1,0 +1,22 @@
+name: Build
+
+on:
+  push:
+    branches: '*'
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.8.1'
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Generate entities
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+      - name: Analyze code with Dart Analyzer
+        run: flutter analyze
