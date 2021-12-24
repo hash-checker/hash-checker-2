@@ -27,7 +27,7 @@ dependencies:
   # AutoRoute is a declarative routing solution, where everything needed
   # for navigation is automatically generated for you.
   # See the following link for more information: https://pub.dev/packages/auto_route
-  auto_route: 3.0.4
+  auto_route: ^3.2.0
 
   # Implementations of SHA, MD5, and HMAC cryptographic functions
   # See the following link for more information: https://pub.dev/packages/crypto

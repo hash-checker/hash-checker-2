@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hash_checker_2/data/repositories/settings/api/settings_repository.dart';
 import 'package:hash_checker_2/data/repositories/settings/impl/settings_repository_impl.dart';
