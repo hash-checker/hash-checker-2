@@ -47,6 +47,16 @@ abstract class _CalculatorStore with Store {
   String get fileNameForGeneratedHash => '$source.${hashType.fileExtensionPart}.txt';
 
   @action
+  void setOriginalHash(String originalHash) {
+    this.originalHash = originalHash;
+  }
+
+  @action
+  void setGeneratedHash(String generatedHash) {
+    this.generatedHash = generatedHash;
+  }
+
+  @action
   void setHashType(HashType hashType) {
     this.hashType = hashType;
   }

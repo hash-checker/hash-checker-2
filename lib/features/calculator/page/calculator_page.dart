@@ -4,6 +4,8 @@ import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:hash_checker_2/components/router/app_router.gr.dart';
 import 'package:hash_checker_2/components/widgets/app_calculator_action_button.dart';
+import 'package:hash_checker_2/components/widgets/app_text_copy_button.dart';
+import 'package:hash_checker_2/components/widgets/app_text_paste_button.dart';
 import 'package:hash_checker_2/data/extensions/hash_type_extensions.dart';
 import 'package:hash_checker_2/data/models/hash_action.dart';
 import 'package:hash_checker_2/data/models/hash_compare_result.dart';
@@ -26,12 +28,30 @@ class CalculatorPage extends StatefulWidget {
 class _CalculatorPageState extends State<CalculatorPage> {
   CalculatorStore? _store;
 
-  final TextEditingController _generatedHashController = TextEditingController();
+  final _originalHashController = TextEditingController();
+  final _generatedHashController = TextEditingController();
+
+  final _originalHashFocus = FocusNode();
+  final _generatedHashFocus = FocusNode();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     _store ??= CalculatorStore();
+  }
+
+  @override
+  void initState() {
+    _originalHashController.addListener(() => _store?.setOriginalHash(_originalHashController.text));
+    _generatedHashController.addListener(() => _store?.setGeneratedHash(_generatedHashController.text));
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _generatedHashController.dispose();
+    _originalHashController.dispose();
+    super.dispose();
   }
 
   @override
@@ -70,32 +90,74 @@ class _CalculatorPageState extends State<CalculatorPage> {
               ),
             ),
             const SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 48,
-                right: 48,
-              ),
-              child: Column(
-                children: [
-                  const TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Original hash',
-                    ),
+            Observer(
+              builder: (_) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16,
+                    right: 16,
                   ),
-                  const SizedBox(height: 16),
-                  Observer(
-                    builder: (_) {
-                      _generatedHashController.text = _store!.generatedHash;
-                      return TextField(
-                        controller: _generatedHashController,
-                        decoration: const InputDecoration(
-                          hintText: 'Generated hash',
-                        ),
-                      );
-                    },
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AppTextPasteButton(
+                            textEditingController: _originalHashController,
+                            isVisible: _store!.originalHash.isNotEmpty,
+                          ),
+                          const SizedBox(width: 4),
+                          SizedBox(
+                            width: 250,
+                            child: TextField(
+                              controller: _originalHashController,
+                              focusNode: _originalHashFocus,
+                              decoration: const InputDecoration(
+                                hintText: 'Original hash',
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          AppTextCopyButton(
+                            textEditingController: _originalHashController,
+                            isVisible: _store!.originalHash.isNotEmpty,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      Observer(
+                        builder: (_) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              AppTextPasteButton(
+                                textEditingController: _generatedHashController,
+                                isVisible: _store!.generatedHash.isNotEmpty,
+                              ),
+                              const SizedBox(width: 4),
+                              SizedBox(
+                                width: 250,
+                                child: TextField(
+                                  controller: _generatedHashController,
+                                  focusNode: _generatedHashFocus,
+                                  decoration: const InputDecoration(
+                                    hintText: 'Generated hash',
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 4),
+                              AppTextCopyButton(
+                                textEditingController: _generatedHashController,
+                                isVisible: _store!.generatedHash.isNotEmpty,
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                );
+              }
             ),
             const SizedBox(height: 32),
             Row(
@@ -111,6 +173,8 @@ class _CalculatorPageState extends State<CalculatorPage> {
                               ? 'File'
                               : 'Text',
                       onPressed: () async {
+                        _originalHashFocus.unfocus();
+                        _generatedHashFocus.unfocus();
                         final hashSource = await showSelectHashSourceDialog(
                           context: context,
                           showClearButton: _store!.hashSource != HashSource.none,
@@ -145,6 +209,8 @@ class _CalculatorPageState extends State<CalculatorPage> {
                 AppCalculatorActionButton(
                   text: 'Action',
                   onPressed: () async {
+                    _originalHashFocus.unfocus();
+                    _generatedHashFocus.unfocus();
                     final hashAction = await showSelectHashActionDialog(context);
                     if (hashAction != null) {
                       switch (hashAction) {
