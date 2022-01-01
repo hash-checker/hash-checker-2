@@ -22,3 +22,26 @@ extension HashTypeToString on HashType {
     }
   }
 }
+
+extension HashTypeToFileExtensionPart on HashType {
+  String get fileExtensionPart {
+    switch (this) {
+      case HashType.md5:
+        return 'md5';
+      case HashType.sha1:
+        return 'sha1';
+      case HashType.sha224:
+        return 'sha224';
+      case HashType.sha256:
+        return 'sha256';
+      case HashType.sha384:
+        return 'sha384';
+      case HashType.sha512:
+        return 'sha512';
+      case HashType.sha512_224:
+        return 'sha512_224';
+      case HashType.sha512_256:
+        return 'sha512_256';
+    }
+  }
+}

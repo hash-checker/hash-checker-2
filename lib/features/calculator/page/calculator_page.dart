@@ -1,5 +1,6 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:hash_checker_2/components/router/app_router.gr.dart';
 import 'package:hash_checker_2/components/widgets/app_calculator_action_button.dart';
@@ -178,6 +179,25 @@ class _CalculatorPageState extends State<CalculatorPage> {
                           }
                           break;
                         case HashAction.export:
+                          if (_store!.canSaveGeneratedHashResult) {
+                            final saveParams = SaveFileDialogParams(
+                              data: _store!.generatedHashToFile,
+                              fileName: _store!.fileNameForGeneratedHash,
+                            );
+                            await FlutterFileDialog.saveFile(params: saveParams);
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: const Text(
+                                  'Please generate hash value before save result',
+                                ),
+                                action: SnackBarAction(
+                                  label: 'OK',
+                                  onPressed: () => ScaffoldMessenger.of(context).clearSnackBars(),
+                                ),
+                              ),
+                            );
+                          }
                           break;
                       }
                     }

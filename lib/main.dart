@@ -24,11 +24,11 @@ class _AppState extends State<App> {
   @override
   void initState() {
     super.initState();
-    final bindings = WidgetsBinding.instance!;
-    final window = bindings.window;
+    final widgetBindings = WidgetsBinding.instance!;
+    final window = widgetBindings.window;
     window.onPlatformBrightnessChanged = () {
       if (context.read<SettingsRepository>().currentTheme() == AppTheme.system) {
-        bindings.handlePlatformBrightnessChanged();
+        widgetBindings.handlePlatformBrightnessChanged();
       }
     };
   }

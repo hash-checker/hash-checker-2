@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
+import 'package:hash_checker_2/data/extensions/hash_type_extensions.dart';
 import 'package:hash_checker_2/data/models/hash_compare_result.dart';
 import 'package:hash_checker_2/data/models/hash_source.dart';
 import 'package:hash_checker_2/data/models/hash_type.dart';
@@ -37,6 +39,12 @@ abstract class _CalculatorStore with Store {
           : textValueToGenerate;
 
   HashCompareResult compare() => originalHash == generatedHash ? HashCompareResult.match : HashCompareResult.doNotMatch;
+
+  bool get canSaveGeneratedHashResult => hashSource != HashSource.none;
+
+  Uint8List get generatedHashToFile => Uint8List.fromList(utf8.encode(generatedHash));
+
+  String get fileNameForGeneratedHash => '$source.${hashType.fileExtensionPart}.txt';
 
   @action
   void setHashType(HashType hashType) {

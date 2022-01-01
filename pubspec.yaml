@@ -43,6 +43,9 @@ dependencies:
   # See the following link for more information: https://pub.dev/packages/file_picker
   file_picker: ^4.2.7
 
+  # Dialogs for picking and saving files in Android and in iOS.
+  flutter_file_dialog: ^2.3.0
+
   # Flutter plugin for querying information about the application package,
   # such as CFBundleVersion on iOS or versionCode on Android.
   # See the following link for more information: https://pub.dev/packages/package_info_plus
