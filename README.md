@@ -8,7 +8,7 @@ Fast and simple application that allows you to generate and compare hashes from 
 
 Because original Hash Checker app sometimes is hard to maintain and second app can build for many popular platforms from
 one code base. Flutter framework is fast and stable, so it is a good choice for cross-platform solution like this.
-Original app is still in maintaining and will not to be archived in near future.
+Original app is still maintaining and will not to be archived in near future.
 
 ## Stack
 
