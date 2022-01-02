@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hash_checker_2/components/widgets/app_hidable_text_button.dart';
 
 class AppTextCopyButton extends StatelessWidget {
   final TextEditingController textEditingController;
@@ -13,20 +14,16 @@ class AppTextCopyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Visibility(
-      visible: isVisible,
-      child: InkWell(
-        child: const Icon(
-          Icons.copy,
-          color: Colors.teal,
-        ),
-        onTap: () async {
-          final clipboard = ClipboardData(
-            text: textEditingController.text,
-          );
-          await Clipboard.setData(clipboard);
-        },
-      ),
+    return AppHidableTextButton(
+      icon: Icons.copy,
+      textEditingController: textEditingController,
+      isVisible: isVisible,
+      onTap: () async {
+        final clipboard = ClipboardData(
+          text: textEditingController.text,
+        );
+        await Clipboard.setData(clipboard);
+      },
     );
   }
 }
