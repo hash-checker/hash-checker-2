@@ -1,0 +1,4 @@
+enum HashCompareResult {
+  match,
+  doNotMatch,
+}
