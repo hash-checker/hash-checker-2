@@ -1,4 +1,4 @@
-# Hash Checker
+# Hash Checker 2
 
 ## About application
 
