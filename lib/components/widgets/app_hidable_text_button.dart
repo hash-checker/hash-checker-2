@@ -7,11 +7,11 @@ class AppHidableTextButton extends StatelessWidget {
   final GestureTapCallback onTap;
 
   const AppHidableTextButton({
-    Key? key,
     required this.icon,
     required this.textEditingController,
     required this.isVisible,
     required this.onTap,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -19,11 +19,11 @@ class AppHidableTextButton extends StatelessWidget {
     return Visibility(
       visible: isVisible,
       child: InkWell(
+        onTap: onTap,
         child: Icon(
           icon,
           color: Colors.teal,
         ),
-        onTap: onTap,
       ),
     );
   }

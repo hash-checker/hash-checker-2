@@ -16,8 +16,8 @@ class _TextEnterDialog extends StatefulWidget {
   final String current;
 
   const _TextEnterDialog({
-    Key? key,
     required this.current,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -42,7 +42,7 @@ class _TextEnterDialogState extends State<_TextEnterDialog> {
     return AlertDialog(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(10.0),
+          Radius.circular(10),
         ),
       ),
       title: const Text('Text'),
