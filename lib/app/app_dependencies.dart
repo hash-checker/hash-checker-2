@@ -7,8 +7,8 @@ class AppDependencies extends StatelessWidget {
   final Widget app;
 
   const AppDependencies({
-    Key? key,
     required this.app,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -16,7 +16,7 @@ class AppDependencies extends StatelessWidget {
     return Provider<SettingsRepository>(
       create: (_) => SettingsRepositoryImpl(),
       builder: (context, _) {
-        // TODO: refactor
+        // TODO(fartem): refactor
         return FutureBuilder<void>(
           future: context.read<SettingsRepository>().load(),
           builder: (_, snapshot) {

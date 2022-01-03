@@ -7,9 +7,9 @@ class AppTextCopyButton extends StatelessWidget {
   final bool isVisible;
 
   const AppTextCopyButton({
-    Key? key,
     required this.textEditingController,
     required this.isVisible,
+    Key? key,
   }) : super(key: key);
 
   @override

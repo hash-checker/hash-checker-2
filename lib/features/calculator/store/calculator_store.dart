@@ -1,3 +1,5 @@
+// ignore_for_file: use_setters_to_change_properties
+
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
