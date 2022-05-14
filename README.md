@@ -51,7 +51,7 @@ Soon.
 
 ## Privacy Policy
 
-Soon.
+- [Web version](https://hash-checker.github.io/hash-checker-2-privacy-policy.io/)
 
 ## Feedback
 
