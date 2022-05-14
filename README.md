@@ -60,7 +60,11 @@ jaman.smlnsk@gmail.com.
 
 ## How to contribute
 
-Soon.
+Before commit, read Commit Convention. Make sure your build is green before you contribute your pull request. Then:
+
+```shell
+$ flutter analyze
+```
 
 ## Contributors
 
