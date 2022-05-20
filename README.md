@@ -39,6 +39,32 @@ Original app is still maintaining and will not be archived in near future.
 
 ## Screenshots
 
+### Android
+
+#### Light
+
+<br/>
+<p align="center">
+  <img src="media/screenshots/android/light/screenshot_01.png" width="130" />
+  <img src="media/screenshots/android/light/screenshot_02.png" width="130" />
+  <img src="media/screenshots/android/light/screenshot_03.png" width="130" />
+  <img src="media/screenshots/android/light/screenshot_04.png" width="130" />
+  <img src="media/screenshots/android/light/screenshot_05.png" width="130" />
+</p>
+
+#### Dark
+
+<br/>
+<p align="center">
+  <img src="media/screenshots/android/dark/screenshot_01.png" width="130" />
+  <img src="media/screenshots/android/dark/screenshot_02.png" width="130" />
+  <img src="media/screenshots/android/dark/screenshot_03.png" width="130" />
+  <img src="media/screenshots/android/dark/screenshot_04.png" width="130" />
+  <img src="media/screenshots/android/dark/screenshot_05.png" width="130" />
+</p>
+
+### iOS
+
 Soon.
 
 ## How to use

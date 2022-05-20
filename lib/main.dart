@@ -35,6 +35,7 @@ class _AppState extends State<App> {
     final theme = context.read<SettingsRepository>().currentTheme();
     return MaterialApp.router(
       title: 'Hash Checker 2',
+      debugShowCheckedModeBanner: false,
       themeMode: theme.themeMode,
       theme: lightTheme,
       darkTheme: darkTheme,
