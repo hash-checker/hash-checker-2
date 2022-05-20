@@ -218,6 +218,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       switch (hashAction) {
                         case HashAction.generate:
                           _store!.generateHash();
+                          _generatedHashController.text = _store!.generatedHash;
                           break;
                         case HashAction.compare:
                           final result = _store!.compare();
