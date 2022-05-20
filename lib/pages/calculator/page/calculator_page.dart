@@ -286,7 +286,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       hashSource == HashSource.none
                           ? 'None'
                           : hashSource == HashSource.file
-                              ? _store!.fileToGenerate
+                              ? _store!.fileToGenerate.substring(_store!.fileToGenerate.lastIndexOf('/') + 1)
                               : _store!.textValueToGenerate,
                     ),
                     onPressed: () => showViewSourceValueDialog(
