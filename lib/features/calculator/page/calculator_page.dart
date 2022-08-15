@@ -19,7 +19,7 @@ import 'package:hash_checker_2/features/calculator/store/calculator_store.dart';
 import 'dialogs/view_source_value_dialog.dart';
 
 class CalculatorPage extends StatefulWidget {
-  const CalculatorPage({Key? key}) : super(key: key);
+  const CalculatorPage({super.key});
 
   @override
   _CalculatorPageState createState() => _CalculatorPageState();

@@ -5,10 +5,10 @@ class AppCalculatorActionButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const AppCalculatorActionButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

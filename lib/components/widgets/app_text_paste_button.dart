@@ -7,10 +7,10 @@ class AppTextPasteButton extends StatelessWidget {
   final bool isVisible;
 
   const AppTextPasteButton({
-    Key? key,
+    super.key,
     required this.textEditingController,
     required this.isVisible,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

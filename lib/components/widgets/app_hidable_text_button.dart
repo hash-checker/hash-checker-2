@@ -7,12 +7,12 @@ class AppHidableTextButton extends StatelessWidget {
   final GestureTapCallback onTap;
 
   const AppHidableTextButton({
-    Key? key,
+    super.key,
     required this.icon,
     required this.textEditingController,
     required this.isVisible,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -7,9 +7,9 @@ class AppDependencies extends StatelessWidget {
   final Widget app;
 
   const AppDependencies({
-    Key? key,
+    super.key,
     required this.app,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

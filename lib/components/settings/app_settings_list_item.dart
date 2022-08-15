@@ -6,11 +6,11 @@ class AppSettingsListItem extends StatelessWidget {
   final GestureTapCallback? onTap;
 
   const AppSettingsListItem({
-    Key? key,
+    super.key,
     required this.title,
     this.subtitle,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

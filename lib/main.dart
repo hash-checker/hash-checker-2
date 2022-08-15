@@ -12,7 +12,7 @@ void main() => runApp(const AppDependencies(app: App()));
 
 class App extends StatefulWidget {
 
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   State<App> createState() => _AppState();
@@ -24,7 +24,7 @@ class _AppState extends State<App> {
   @override
   void initState() {
     super.initState();
-    final widgetBindings = WidgetsBinding.instance!;
+    final widgetBindings = WidgetsBinding.instance;
     final window = widgetBindings.window;
     window.onPlatformBrightnessChanged = () {
       if (context.read<SettingsRepository>().currentTheme() == AppTheme.system) {
