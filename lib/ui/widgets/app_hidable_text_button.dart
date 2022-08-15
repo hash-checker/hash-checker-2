@@ -11,8 +11,8 @@ class AppHidableTextButton extends StatelessWidget {
     required this.textEditingController,
     required this.isVisible,
     required this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

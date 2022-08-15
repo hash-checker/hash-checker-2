@@ -7,8 +7,8 @@ class AppCalculatorActionButton extends StatelessWidget {
   const AppCalculatorActionButton({
     required this.text,
     required this.onPressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

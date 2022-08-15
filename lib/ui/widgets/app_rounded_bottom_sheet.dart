@@ -5,8 +5,8 @@ class AppRoundedBottomSheet extends StatelessWidget {
 
   const AppRoundedBottomSheet({
     required this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

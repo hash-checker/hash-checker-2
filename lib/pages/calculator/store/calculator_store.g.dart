@@ -6,10 +6,11 @@ part of 'calculator_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$CalculatorStore on _CalculatorStore, Store {
-  final _$hashTypeAtom = Atom(name: '_CalculatorStore.hashType');
+  late final _$hashTypeAtom =
+      Atom(name: '_CalculatorStore.hashType', context: context);
 
   @override
   HashType get hashType {
@@ -24,7 +25,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
     });
   }
 
-  final _$hashSourceAtom = Atom(name: '_CalculatorStore.hashSource');
+  late final _$hashSourceAtom =
+      Atom(name: '_CalculatorStore.hashSource', context: context);
 
   @override
   HashSource get hashSource {
@@ -39,7 +41,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
     });
   }
 
-  final _$fileToGenerateAtom = Atom(name: '_CalculatorStore.fileToGenerate');
+  late final _$fileToGenerateAtom =
+      Atom(name: '_CalculatorStore.fileToGenerate', context: context);
 
   @override
   String get fileToGenerate {
@@ -54,7 +57,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
     });
   }
 
-  final _$textValueToGenerateAtom = Atom(name: '_CalculatorStore.textValueToGenerate');
+  late final _$textValueToGenerateAtom =
+      Atom(name: '_CalculatorStore.textValueToGenerate', context: context);
 
   @override
   String get textValueToGenerate {
@@ -69,7 +73,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
     });
   }
 
-  final _$originalHashAtom = Atom(name: '_CalculatorStore.originalHash');
+  late final _$originalHashAtom =
+      Atom(name: '_CalculatorStore.originalHash', context: context);
 
   @override
   String get originalHash {
@@ -84,7 +89,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
     });
   }
 
-  final _$generatedHashAtom = Atom(name: '_CalculatorStore.generatedHash');
+  late final _$generatedHashAtom =
+      Atom(name: '_CalculatorStore.generatedHash', context: context);
 
   @override
   String get generatedHash {
@@ -99,11 +105,13 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
     });
   }
 
-  final _$_CalculatorStoreActionController = ActionController(name: '_CalculatorStore');
+  late final _$_CalculatorStoreActionController =
+      ActionController(name: '_CalculatorStore', context: context);
 
   @override
   void setOriginalHash(String originalHash) {
-    final _$actionInfo = _$_CalculatorStoreActionController.startAction(name: '_CalculatorStore.setOriginalHash');
+    final _$actionInfo = _$_CalculatorStoreActionController.startAction(
+        name: '_CalculatorStore.setOriginalHash');
     try {
       return super.setOriginalHash(originalHash);
     } finally {
@@ -113,7 +121,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
 
   @override
   void setGeneratedHash(String generatedHash) {
-    final _$actionInfo = _$_CalculatorStoreActionController.startAction(name: '_CalculatorStore.setGeneratedHash');
+    final _$actionInfo = _$_CalculatorStoreActionController.startAction(
+        name: '_CalculatorStore.setGeneratedHash');
     try {
       return super.setGeneratedHash(generatedHash);
     } finally {
@@ -123,7 +132,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
 
   @override
   void setHashType(HashType hashType) {
-    final _$actionInfo = _$_CalculatorStoreActionController.startAction(name: '_CalculatorStore.setHashType');
+    final _$actionInfo = _$_CalculatorStoreActionController.startAction(
+        name: '_CalculatorStore.setHashType');
     try {
       return super.setHashType(hashType);
     } finally {
@@ -133,7 +143,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
 
   @override
   void setFileToGenerate(String fileToGenerate) {
-    final _$actionInfo = _$_CalculatorStoreActionController.startAction(name: '_CalculatorStore.setFileToGenerate');
+    final _$actionInfo = _$_CalculatorStoreActionController.startAction(
+        name: '_CalculatorStore.setFileToGenerate');
     try {
       return super.setFileToGenerate(fileToGenerate);
     } finally {
@@ -143,8 +154,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
 
   @override
   void setTextValueToGenerate(String textValueToGenerate) {
-    final _$actionInfo =
-        _$_CalculatorStoreActionController.startAction(name: '_CalculatorStore.setTextValueToGenerate');
+    final _$actionInfo = _$_CalculatorStoreActionController.startAction(
+        name: '_CalculatorStore.setTextValueToGenerate');
     try {
       return super.setTextValueToGenerate(textValueToGenerate);
     } finally {
@@ -154,7 +165,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
 
   @override
   void clearSelections() {
-    final _$actionInfo = _$_CalculatorStoreActionController.startAction(name: '_CalculatorStore.clearSelections');
+    final _$actionInfo = _$_CalculatorStoreActionController.startAction(
+        name: '_CalculatorStore.clearSelections');
     try {
       return super.clearSelections();
     } finally {
@@ -164,7 +176,8 @@ mixin _$CalculatorStore on _CalculatorStore, Store {
 
   @override
   void generateHash() {
-    final _$actionInfo = _$_CalculatorStoreActionController.startAction(name: '_CalculatorStore.generateHash');
+    final _$actionInfo = _$_CalculatorStoreActionController.startAction(
+        name: '_CalculatorStore.generateHash');
     try {
       return super.generateHash();
     } finally {

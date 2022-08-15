@@ -13,6 +13,7 @@ import 'package:mobx/mobx.dart';
 
 part 'calculator_store.g.dart';
 
+// ignore: library_private_types_in_public_api
 class CalculatorStore = _CalculatorStore with _$CalculatorStore;
 
 abstract class _CalculatorStore with Store {

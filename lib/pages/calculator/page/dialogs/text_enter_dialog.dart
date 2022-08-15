@@ -19,8 +19,7 @@ class _TextEnterDialog extends StatefulWidget {
 
   const _TextEnterDialog({
     required this.current,
-    Key? key,
-  }) : super(key: key);
+  });
 
   @override
   _TextEnterDialogState createState() => _TextEnterDialogState();
@@ -36,7 +35,7 @@ class _TextEnterDialogState extends State<_TextEnterDialog> {
     _textEditingController = TextEditingController(
       text: widget.current,
     );
-    WidgetsBinding.instance!.addPostFrameCallback((_) => _textEditingFocusNode.requestFocus());
+    WidgetsBinding.instance.addPostFrameCallback((_) => _textEditingFocusNode.requestFocus());
   }
 
   @override

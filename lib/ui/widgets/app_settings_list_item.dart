@@ -9,8 +9,8 @@ class AppSettingsListItem extends StatelessWidget {
     required this.title,
     this.subtitle,
     this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -10,12 +10,11 @@
 //
 // ignore_for_file: type=lint
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i3;
 import 'package:flutter/material.dart' as _i4;
 
-import '../../pages/calculator/page/calculator_page.dart' as _i1;
-import '../../pages/settings/page/settings_page.dart' as _i2;
+import '../../features/calculator/page/calculator_page.dart' as _i1;
+import '../../features/settings/page/settings_page.dart' as _i2;
 
 class AppRouter extends _i3.RootStackRouter {
   AppRouter([_i4.GlobalKey<_i4.NavigatorState>? navigatorKey])

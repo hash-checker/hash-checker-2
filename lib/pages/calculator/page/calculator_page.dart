@@ -18,13 +18,13 @@ import 'package:hash_checker_2/ui/widgets/app_text_copy_button.dart';
 import 'package:hash_checker_2/ui/widgets/app_text_paste_button.dart';
 
 class CalculatorPage extends StatefulWidget {
-  const CalculatorPage({Key? key}) : super(key: key);
+  const CalculatorPage({super.key});
 
   @override
-  _CalculatorPageState createState() => _CalculatorPageState();
+  CalculatorPageState createState() => CalculatorPageState();
 }
 
-class _CalculatorPageState extends State<CalculatorPage> {
+class CalculatorPageState extends State<CalculatorPage> {
   CalculatorStore? _store;
 
   final _originalHashController = TextEditingController();
@@ -224,6 +224,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                           final result = _store!.compare();
                           switch (result) {
                             case HashCompareResult.match:
+                              // ignore: use_build_context_synchronously
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: const Text('Match'),
@@ -235,6 +236,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                               );
                               break;
                             case HashCompareResult.doNotMatch:
+                              // ignore: use_build_context_synchronously
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: const Text('Do not match'),
@@ -255,6 +257,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                             );
                             await FlutterFileDialog.saveFile(params: saveParams);
                           } else {
+                            // ignore: use_build_context_synchronously
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: const Text(

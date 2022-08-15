@@ -11,13 +11,13 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({super.key});
 
   @override
-  _SettingsPageState createState() => _SettingsPageState();
+  SettingsPageState createState() => SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class SettingsPageState extends State<SettingsPage> {
   SettingsStore? _store;
 
   @override
@@ -65,16 +65,16 @@ class _SettingsPageState extends State<SettingsPage> {
               AppSettingsListItem(
                 title: 'Bug tracker',
                 subtitle: 'Report a bug',
-                onTap: () => launch(AppConfig.linkBugTracker),
+                onTap: () => launchUrl(Uri.parse(AppConfig.linkBugTracker)),
               ),
               AppSettingsListItem(
                 title: 'Privacy Policy',
-                onTap: () => launch(AppConfig.linkPrivacyPolicy),
+                onTap: () => launchUrl(Uri.parse(AppConfig.linkPrivacyPolicy)),
               ),
               AppSettingsListItem(
                 title: 'Author',
                 subtitle: 'fartem',
-                onTap: () => launch(AppConfig.linkAuthor),
+                onTap: () => launchUrl(Uri.parse(AppConfig.linkAuthor)),
               ),
               AppSettingsListItem(
                 title: 'Version',
