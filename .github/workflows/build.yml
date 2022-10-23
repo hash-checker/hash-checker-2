@@ -22,7 +22,6 @@ jobs:
   dart_links_reachable:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/checkout@main
         with:
           repository: hash-checker/dart_links_reachable
@@ -40,7 +39,6 @@ jobs:
   flutter_mobx_structure_validator:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/checkout@main
         with:
           repository: hash-checker/flutter_mobx_structure_validator
@@ -53,5 +51,4 @@ jobs:
         run: dart pub get
       - name: Run flutter_mobx_structure_validator
         working-directory: flutter_mobx_structure_validator
-#        run: dart ./bin/flutter_mobx_structure_validator.dart ../../../hash-checker-2/lib
-        run: ls ../../../hash-checker-2/
+        run: dart ./bin/flutter_mobx_structure_validator.dart ../../../hash-checker-2/hash-checker-2/lib
