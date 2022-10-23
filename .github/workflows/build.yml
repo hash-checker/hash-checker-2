@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
         with:
-          name: hash-checker/dart_links_reachable
+          repository: hash-checker/dart_links_reachable
           submodules: true
       - uses: dart-lang/setup-dart@v1.0
         with:
@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@main
         with:
-          name: hash-checker/flutter_mobx_structure_validator
+          repository: hash-checker/flutter_mobx_structure_validator
           submodules: true
       - uses: dart-lang/setup-dart@v1.0
         with:
