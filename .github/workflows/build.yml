@@ -34,8 +34,7 @@ jobs:
         run: dart pub get
       - name: Run dart_links_reachable
         working-directory: dart_links_reachable
-#        run: dart ./bin/reachable.dart ../../hash-checker-2/lib
-        run: ls ../../../
+        run: dart ./bin/reachable.dart ../../../hash-checker-2/lib
 
   flutter_mobx_structure_validator:
     runs-on: ubuntu-latest
@@ -52,4 +51,4 @@ jobs:
         run: dart pub get
       - name: Run flutter_mobx_structure_validator
         working-directory: flutter_mobx_structure_validator
-        run: dart ./bin/flutter_mobx_structure_validator.dart ../../hash-checker-2/lib
+        run: dart ./bin/flutter_mobx_structure_validator.dart ../../../hash-checker-2/lib
