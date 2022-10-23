@@ -31,6 +31,7 @@ jobs:
       - name: Install dependencies
         run: dart pub get
       - name: Run dart_links_reachable
+        working-directory: dart_links_reachable
         run: dart ./bin/dart_links_reachable.dart ../hash-checker-2/lib
 
   flutter_mobx_structure_validator:
@@ -45,4 +46,5 @@ jobs:
       - name: Install dependencies
         run: dart pub get
       - name: Run flutter_mobx_structure_validator
+        working-directory: flutter_mobx_structure_validator
         run: dart ./bin/flutter_mobx_structure_validator.dart ../hash-checker-2/lib
