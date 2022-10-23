@@ -54,4 +54,4 @@ jobs:
       - name: Run flutter_mobx_structure_validator
         working-directory: flutter_mobx_structure_validator
 #        run: dart ./bin/flutter_mobx_structure_validator.dart ../../../hash-checker-2/lib
-        run: ls ../../
+        run: ls ../../../
