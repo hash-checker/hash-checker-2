@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  analyze:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,3 +18,39 @@ jobs:
         run: flutter pub get
       - name: Analyze code with Dart Analyzer
         run: flutter analyze
+
+  dart_links_reachable:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
+        with:
+          repository: hash-checker/dart_links_reachable
+          path: './dart_links_reachable'
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: 2.18.0
+      - name: Install dependencies
+        working-directory: dart_links_reachable
+        run: dart pub get
+      - name: Run dart_links_reachable
+        working-directory: dart_links_reachable
+        run: dart ./bin/dart_links_reachable.dart ../../../hash-checker-2/hash-checker-2/lib
+
+  flutter_mobx_structure_validator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
+        with:
+          repository: hash-checker/flutter_mobx_structure_validator
+          path: './flutter_mobx_structure_validator'
+      - uses: dart-lang/setup-dart@v1.0
+        with:
+          sdk: 2.18.0
+      - name: Install dependencies
+        working-directory: flutter_mobx_structure_validator
+        run: dart pub get
+      - name: Run flutter_mobx_structure_validator
+        working-directory: flutter_mobx_structure_validator
+        run: dart ./bin/flutter_mobx_structure_validator.dart ../../../hash-checker-2/hash-checker-2/lib
