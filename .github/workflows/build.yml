@@ -25,7 +25,6 @@ jobs:
       - uses: actions/checkout@main
         with:
           repository: hash-checker/dart_links_reachable
-          submodules: true
       - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: 2.18.0
@@ -38,7 +37,6 @@ jobs:
       - uses: actions/checkout@main
         with:
           repository: hash-checker/flutter_mobx_structure_validator
-          submodules: true
       - uses: dart-lang/setup-dart@v1.0
         with:
           sdk: 2.18.0
