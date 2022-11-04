@@ -67,5 +67,4 @@ jobs:
         with:
           flutter-version: '3.0.5'
       - name: Build Android app
-        working-directory: ../../../hash-checker-2
         run: ../../../hc2_builder/android_debug_builder.sh
