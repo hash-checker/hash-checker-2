@@ -54,3 +54,18 @@ jobs:
       - name: Run flutter_mobx_structure_validator
         working-directory: flutter_mobx_structure_validator
         run: dart ./bin/flutter_mobx_structure_validator.dart ../../../hash-checker-2/hash-checker-2/lib
+
+  android_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
+        with:
+          repository: hash-checker/hc2_builder
+          path: './hc2_builder'
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '3.0.5'
+      - name: Build Android app
+        working-directory: ../../../hash-checker-2
+        run: ../../../hc2_builder/android_debug_builder.sh
