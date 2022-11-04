@@ -68,4 +68,4 @@ jobs:
           flutter-version: '3.0.5'
       - name: Build Android app
 #        run: ../../hc2_builder/android_debug_builder.sh
-        run: ls ../../../
+        run: ls ../../
