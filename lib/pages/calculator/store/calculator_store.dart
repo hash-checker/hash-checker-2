@@ -4,11 +4,11 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:hashlib/hashlib.dart';
 import 'package:hash_checker_2/extensions/hash_type_extensions.dart';
 import 'package:hash_checker_2/model/hash_compare_result.dart';
 import 'package:hash_checker_2/model/hash_source.dart';
 import 'package:hash_checker_2/model/hash_type.dart';
+import 'package:hashlib/hashlib.dart';
 import 'package:mobx/mobx.dart';
 
 part 'calculator_store.g.dart';
