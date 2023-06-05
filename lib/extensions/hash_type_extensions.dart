@@ -3,6 +3,8 @@ import 'package:hash_checker_2/model/hash_type.dart';
 extension HashTypeToString on HashType {
   String get uiName {
     switch (this) {
+      case HashType.crc32:
+        return 'CRC32';
       case HashType.md5:
         return 'MD5';
       case HashType.sha1:
@@ -34,6 +36,8 @@ extension HashTypeToString on HashType {
 extension HashTypeToFileExtensionPart on HashType {
   String get fileExtensionPart {
     switch (this) {
+      case HashType.crc32:
+        return 'crc32';
       case HashType.md5:
         return 'md5';
       case HashType.sha1:

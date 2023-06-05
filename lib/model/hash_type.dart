@@ -1,4 +1,5 @@
 enum HashType {
+  crc32,
   md5,
   sha1,
   sha224,

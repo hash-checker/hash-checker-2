@@ -92,6 +92,9 @@ abstract class _CalculatorStore with Store {
     }
     if (bytes != null) {
       switch (hashType) {
+        case HashType.crc32:
+          generatedHash = crc32.convert(bytes).toString();
+          break;
         case HashType.md5:
           generatedHash = md5.convert(bytes).toString();
           break;
