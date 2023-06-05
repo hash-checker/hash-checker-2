@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:crypto/crypto.dart';
+import 'package:hashlib/hashlib.dart';
 import 'package:hash_checker_2/extensions/hash_type_extensions.dart';
 import 'package:hash_checker_2/model/hash_compare_result.dart';
 import 'package:hash_checker_2/model/hash_source.dart';
@@ -41,19 +41,24 @@ abstract class _CalculatorStore with Store {
           ? fileToGenerate
           : textValueToGenerate;
 
-  HashCompareResult compare() => originalHash == generatedHash ? HashCompareResult.match : HashCompareResult.doNotMatch;
+  HashCompareResult compare() => originalHash == generatedHash
+      ? HashCompareResult.match
+      : HashCompareResult.doNotMatch;
 
   bool get canSaveGeneratedHashResult => hashSource != HashSource.none;
 
-  Uint8List get generatedHashToFile => Uint8List.fromList(utf8.encode(generatedHash));
+  Uint8List get generatedHashToFile =>
+      Uint8List.fromList(utf8.encode(generatedHash));
 
-  String get fileNameForGeneratedHash => '$source.${hashType.fileExtensionPart}.txt';
+  String get fileNameForGeneratedHash =>
+      '$source.${hashType.fileExtensionPart}.txt';
 
   @action
   void setOriginalHash(String originalHash) => this.originalHash = originalHash;
 
   @action
-  void setGeneratedHash(String generatedHash) => this.generatedHash = generatedHash;
+  void setGeneratedHash(String generatedHash) =>
+      this.generatedHash = generatedHash;
 
   @action
   void setHashType(HashType hashType) => this.hashType = hashType;
@@ -106,10 +111,22 @@ abstract class _CalculatorStore with Store {
           generatedHash = sha512.convert(bytes).toString();
           break;
         case HashType.sha512_224:
-          generatedHash = sha512224.convert(bytes).toString();
+          generatedHash = sha512t224.convert(bytes).toString();
           break;
         case HashType.sha512_256:
-          generatedHash = sha512256.convert(bytes).toString();
+          generatedHash = sha512t256.convert(bytes).toString();
+          break;
+        case HashType.sha3_224:
+          generatedHash = sha3_224.convert(bytes).toString();
+          break;
+        case HashType.sha3_256:
+          generatedHash = sha3_256.convert(bytes).toString();
+          break;
+        case HashType.sha3_384:
+          generatedHash = sha3_384.convert(bytes).toString();
+          break;
+        case HashType.sha3_512:
+          generatedHash = sha3_512.convert(bytes).toString();
           break;
       }
     }

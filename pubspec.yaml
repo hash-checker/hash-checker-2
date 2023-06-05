@@ -30,8 +30,8 @@ dependencies:
   auto_route: ^4.2.1
 
   # Implementations of SHA, MD5, and HMAC cryptographic functions
-  # See the following link for more information: https://pub.dev/packages/crypto
-  crypto: ^3.0.2
+  # See the following link for more information: https://pub.dev/packages/hashlib
+  hashlib: ^1.11.4
 
   # Flutter plugin for reading and writing simple key-value pairs.
   # Wraps NSUserDefaults on iOS and SharedPreferences on Android.

@@ -19,6 +19,14 @@ extension HashTypeToString on HashType {
         return 'SHA-512/224';
       case HashType.sha512_256:
         return 'SHA-512/256';
+      case HashType.sha3_224:
+        return 'SHA3-224';
+      case HashType.sha3_256:
+        return 'SHA3-256';
+      case HashType.sha3_384:
+        return 'SHA3-384';
+      case HashType.sha3_512:
+        return 'SHA3-512';
     }
   }
 }
@@ -42,6 +50,14 @@ extension HashTypeToFileExtensionPart on HashType {
         return 'sha512_224';
       case HashType.sha512_256:
         return 'sha512_256';
+      case HashType.sha3_224:
+        return 'sha3-224';
+      case HashType.sha3_256:
+        return 'sha3-256';
+      case HashType.sha3_384:
+        return 'sha3-384';
+      case HashType.sha3_512:
+        return 'sha3-512';
     }
   }
 }
