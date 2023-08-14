@@ -54,7 +54,7 @@ dependencies:
 
   # Flutter plugin for launching a URL. Supports web, phone, SMS, and email schemes.
   # See the following link for more information: https://pub.dev/packages/url_launcher
-  url_launcher: ^6.1.5
+  url_launcher: ^6.1.12
 
 dev_dependencies:
   flutter_test:
