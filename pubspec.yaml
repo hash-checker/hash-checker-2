@@ -22,7 +22,7 @@ dependencies:
 
   # A wrapper around InheritedWidget to make them easier to use and more reusable.
   # See the following link for more information: https://pub.dev/packages/provider
-  provider: ^6.0.3
+  provider: ^6.0.5
 
   # AutoRoute is a declarative routing solution, where everything needed
   # for navigation is automatically generated for you.
@@ -31,7 +31,7 @@ dependencies:
 
   # Implementations of SHA, MD5, and HMAC cryptographic functions
   # See the following link for more information: https://pub.dev/packages/hashlib
-  hashlib: ^1.11.4
+  hashlib: ^1.12.0
 
   # Flutter plugin for reading and writing simple key-value pairs.
   # Wraps NSUserDefaults on iOS and SharedPreferences on Android.
@@ -45,12 +45,12 @@ dependencies:
 
   # Dialogs for picking and saving files in Android and in iOS.
   # See the following link for more information: https://pub.dev/packages/flutter_file_dialog
-  flutter_file_dialog: ^2.3.0
+  flutter_file_dialog: ^2.3.2
 
   # Flutter plugin for querying information about the application package,
   # such as CFBundleVersion on iOS or versionCode on Android.
   # See the following link for more information: https://pub.dev/packages/package_info_plus
-  package_info_plus: ^1.4.3
+  package_info_plus: ^1.4.3+1
 
   # Flutter plugin for launching a URL. Supports web, phone, SMS, and email schemes.
   # See the following link for more information: https://pub.dev/packages/url_launcher
@@ -62,7 +62,7 @@ dev_dependencies:
 
   # Recommended lints for Flutter apps, packages, and plugins to encourage good coding practices.
   # See the following link for more information: https://pub.dev/packages/flutter_lints
-  flutter_lints: ^2.0.1
+  flutter_lints: ^2.0.2
 
   # A build system for Dart code generation and modular compilation.
   # See the following link for more information: https://pub.dev/packages/build_runner
