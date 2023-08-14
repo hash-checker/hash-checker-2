@@ -1,4 +1,5 @@
 enum HashType {
+  crc32,
   md5,
   sha1,
   sha224,
@@ -7,4 +8,8 @@ enum HashType {
   sha512,
   sha512_224,
   sha512_256,
+  sha3_224,
+  sha3_256,
+  sha3_384,
+  sha3_512,
 }

@@ -22,6 +22,7 @@ Original app is still maintaining and will not be archived in near future.
 
 | Name                                               | Since version | Status       |
 |----------------------------------------------------|---------------|--------------|
+| [CRC32](https://en.wikipedia.org/wiki/CRC32)       | 1.0.0         | `Supporting` |
 | [MD5](https://en.wikipedia.org/wiki/MD5)           | 1.0.0         | `Supporting` |
 | [SHA-1](https://en.wikipedia.org/wiki/SHA-1)       | 1.0.0         | `Supporting` |
 | [SHA-224](https://en.wikipedia.org/wiki/SHA-2)     | 1.0.0         | `Supporting` |
@@ -30,6 +31,10 @@ Original app is still maintaining and will not be archived in near future.
 | [SHA-512](https://en.wikipedia.org/wiki/SHA-2)     | 1.0.0         | `Supporting` |
 | [SHA-512/224](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0         | `Supporting` |
 | [SHA-512/256](https://en.wikipedia.org/wiki/SHA-2) | 1.0.0         | `Supporting` |
+| [SHA3-224](https://en.wikipedia.org/wiki/SHA-3)    | 1.0.0         | `Supporting` |
+| [SHA3-256](https://en.wikipedia.org/wiki/SHA-3)    | 1.0.0         | `Supporting` |
+| [SHA3-384](https://en.wikipedia.org/wiki/SHA-3)    | 1.0.0         | `Supporting` |
+| [SHA3-512](https://en.wikipedia.org/wiki/SHA-3)    | 1.0.0         | `Supporting` |
 
 ## Languages
 
